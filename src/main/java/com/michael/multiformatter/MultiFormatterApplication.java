@@ -23,9 +23,6 @@ public class MultiFormatterApplication implements WebMvcConfigurer {
 
 	@Bean
 	public DataSource dataSource() {
-//		String fileFormat = Objects.nonNull(FileFromQueryResource.currentFileFormat)
-//				? FileFromQueryResource.currentFileFormat.name()
-//				: FileFormat.CSV.name();
 		CustomRouteDataSource dataSource = new CustomRouteDataSource();
 		dataSource.setTargetDataSources(datasourceConfig.createTargetDataSources());
 		return dataSource;

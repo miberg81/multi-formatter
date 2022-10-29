@@ -8,49 +8,27 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.HashMap;
 import java.util.Map;
 
-//@Configuration
-@ConfigurationProperties(prefix = "spring")
+/**
+ * Create a map of data sources according to the properties map
+ * in application.yaml (see spring.datasource)
+ */
 @Getter
 @Setter
+@ConfigurationProperties(prefix = "spring")
 public class DatasourceConfig {
-    // this field is mapped to spring.datasource
+    // this field is mapped to spring.datasource in
     private Map<String, DataSourceProperties> datasource = new HashMap<>();
 
     public Map<Object, Object> createTargetDataSources() {
         Map<Object, Object> result = new HashMap<>();
         datasource.forEach((key, value) -> {
-            // key is data format like CSV, JSON
-            // value is the  datasource properties for that format in db
+            // key is the data format like CSV, JSON
+            // value is the datasource for this format
             result.put(
                     key,
                     value.initializeDataSourceBuilder().build()
             );
         });
-        return  result;
+        return result;
     }
-
-//    @Bean
-//    @ConfigurationProperties("spring.datasource.SCV")
-//    public DataSourceProperties v2DataSourceProperties() {
-//        return new DataSourceProperties();
-//    }
-//
-//    @Primary
-//    @Bean
-//    @ConfigurationProperties("spring.datasource.JSON")
-//    public DataSourceProperties sqliteDataSourceProperties() {
-//        return new DataSourceProperties();
-//    }
-
-//    public DataSource SCVDataSource() {
-//        return v2DataSourceProperties()
-//                .initializeDataSourceBuilder()
-//                .build();
-//    }
-//
-//    public DataSource JSONDataSource() {
-//        return sqliteDataSourceProperties()
-//                .initializeDataSourceBuilder()
-//                .build();
-//    }
 }

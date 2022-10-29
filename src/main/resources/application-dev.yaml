@@ -11,7 +11,7 @@ spring:
       driverClassName: org.h2.Driver
       generate-unique-name: false
     JSON:
-      url: jdbc:sqlite:./JSON.db
+      url: jdbc:sqlite:./JSON
       username: sa
       password: sa
       driverClassName: org.sqlite.JDBC
