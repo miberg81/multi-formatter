@@ -1,0 +1,23 @@
+INSERT INTO employer (id, firstname, lastname, address) VALUES
+(1, 'Employer name 1', 'Employer lastname1', 'Some address 1');
+
+
+select * from employer;
+
+select * from employer where FIRSTNAME='firstName1' ;
+
+update employer set address='SCV' where FIRSTNAME='firstName1' ;
+
+create table if not exists employer (
+    id bigint not null,
+    firstname varchar(255) not null,
+    lastname varchar(255) not null,
+    address varchar(255) not null,
+    primary key (id)
+);
+
+insert into employer values
+(1,'firstName1', 'lastName1' , 'JSON'),
+(2,'firstName2', 'lastName2' , 'JSON'),
+(3,'firstName3', 'lastName3' , 'JSON'),
+(4,'firstName4', 'lastName4' , 'JSON');
