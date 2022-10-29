@@ -1,6 +1,6 @@
 # multi-formatter
 A spring boot REST api which gets an sql query and format(SVN/JSON) via a POST request
-and returns a query result in a file of request format
+and returns a query result in a file of the requested format(SVN/JSON)
 The result is written to a file on disc and also returned  to the client in response.
 The api is configured to work against multiple dataSources:
 - when a request for a CSV file is received - the query runs in H2 DB.
