@@ -1,5 +1,6 @@
 # multi-formatter
-A spring boot REST API which gets an SQL query and format(SVN/JSON) via a POST request
+A spring boot REST API which gets an SQL query and format(SVN/JSON) via a POST request,
+runs this query as a native sql query
 and returns a query result in a file of the requested format(SVN/JSON)
 The result is written to a file on a disc and also returned to the client in response.
 The API is configured to work against multiple data sources:
